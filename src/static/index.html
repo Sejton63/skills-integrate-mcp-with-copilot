@@ -9,11 +9,13 @@
   <body>
     <header>
       <div id="user-menu">
-        <button id="user-icon" aria-label="Teacher account">👤</button>
+        <button id="user-icon" aria-label="User account">👤</button>
         <div id="user-dropdown" class="hidden">
-          <button id="login-button" type="button">Teacher Login</button>
+          <button id="login-button" type="button">Log in</button>
+          <button id="register-button" type="button">Create student account</button>
           <button id="logout-button" type="button" class="hidden">Logout</button>
-          <p id="teacher-display" class="hidden"></p>
+          <button id="reset-password-button" type="button" class="hidden">Reset a password</button>
+          <p id="user-display" class="hidden"></p>
         </div>
       </div>
       <h1>Mergington High School</h1>
@@ -31,7 +33,7 @@
 
       <section id="signup-container">
         <h3>Sign Up for an Activity</h3>
-        <p id="admin-note" class="info">Teacher login is required to register or unregister students.</p>
+        <p id="admin-note" class="info">Administrator login is required to register or unregister students.</p>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -56,19 +58,59 @@
 
     <div id="login-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="login-title">
       <div class="modal-content">
-        <h3 id="login-title">Teacher Login</h3>
+        <h3 id="login-title">Account Login</h3>
         <form id="login-form">
           <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" required />
+            <input type="text" id="username" minlength="3" maxlength="64" required />
           </div>
           <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" required />
+            <input type="password" id="password" minlength="12" maxlength="128" required />
           </div>
           <div class="modal-actions">
             <button type="submit">Login</button>
             <button type="button" id="cancel-login">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="register-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="register-title">
+      <div class="modal-content">
+        <h3 id="register-title">Create Student Account</h3>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="register-username">Username:</label>
+            <input type="text" id="register-username" minlength="3" maxlength="64" required />
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password (at least 12 characters):</label>
+            <input type="password" id="register-password" minlength="12" maxlength="128" required />
+          </div>
+          <div class="modal-actions">
+            <button type="submit">Create Account</button>
+            <button type="button" id="cancel-register">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="reset-password-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="reset-password-title">
+      <div class="modal-content">
+        <h3 id="reset-password-title">Reset User Password</h3>
+        <form id="reset-password-form">
+          <div class="form-group">
+            <label for="reset-username">Username:</label>
+            <input type="text" id="reset-username" minlength="3" maxlength="64" required />
+          </div>
+          <div class="form-group">
+            <label for="new-password">New password (at least 12 characters):</label>
+            <input type="password" id="new-password" minlength="12" maxlength="128" required />
+          </div>
+          <div class="modal-actions">
+            <button type="submit">Reset Password</button>
+            <button type="button" id="cancel-reset-password">Cancel</button>
           </div>
         </form>
       </div>

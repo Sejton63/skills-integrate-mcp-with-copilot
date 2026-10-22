@@ -41,3 +41,7 @@ __pycache__
 
 # Env files
 .env
+
+# Local account database
+src/users.json
+src/users.tmp

@@ -13,7 +13,25 @@
         "src.app:app",
         "--reload"
       ],
+      "env": {
+        "ADMIN_USERNAME": "${input:adminUsername}",
+        "ADMIN_PASSWORD": "${input:adminPassword}"
+      },
       "jinja": true
+    }
+  ],
+  "inputs": [
+    {
+      "id": "adminUsername",
+      "type": "promptString",
+      "description": "Initial administrator username",
+      "default": "school-admin"
+    },
+    {
+      "id": "adminPassword",
+      "type": "promptString",
+      "description": "Initial administrator password (at least 12 characters)",
+      "password": true
     }
   ]
 }
